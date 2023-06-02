@@ -42,7 +42,7 @@ const server = http.createServer((req, res) => {
         const codeBlock = postData.code;
 
         // Execute the Python script using the code block as a command
-        exec(`python -c "${codeBlock.replace(/"/g, '\\"')}"`, (error, stdout, stderr) => {
+        exec(`python3 -c "${codeBlock.replace(/"/g, '\\"')}"`, (error, stdout, stderr) => {
           if (error) {
             console.error('Python script execution error:', error);
             res.writeHead(500, { 'Content-Type': 'text/plain' });
