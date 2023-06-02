@@ -19,7 +19,7 @@ app.post('/execute', (req, res) => {
   }
 
   // Execute the Python script using the code block as a command
-exec(`python -c "${codeBlock.replace(/"/g, '\\"')}"`, (error, stdout, stderr) => {
+exec(`python3 -c "${codeBlock.replace(/"/g, '\\"')}"`, (error, stdout, stderr) => {
   if (error) {
     console.error('Python script execution error:', error);
   } else {
