@@ -1,0 +1,125 @@
+import random
+
+tech_words = [
+    "computer", "algorithm", "programming", "software", "database",
+    "network", "security", "cloud", "artificial", "intelligence",
+    "machine", "learning", "web", "mobile", "application",
+    "developer", "cybersecurity", "blockchain", "virtual", "reality"
+]
+
+# Generate 20 random segments from tech_words
+segments = [random.choice(tech_words) for _ in range(20)]
+
+# Create 1000 new words by combining random segments
+new_words = []
+for _ in range(1000):
+    word = ''.join(random.sample(segments, random.randint(2, 4)))
+    new_words.append(word)
+
+# Format the new words in HTML paragraphs
+paragraphs = []
+for i in range(0, len(new_words), 10):
+    words = new_words[i:i+30]
+    paragraph = '<p>' + ', '.join(words) + '</p>'
+    paragraphs.append(paragraph)
+
+# Generate the HTML content
+html_content = '<html><body>' + '\n'.join(paragraphs) + '</body></html>'
+
+# Generate a random number for the filename
+random_number = str(random.randint(1000, 9999))
+
+# Generate the file name with the random number
+file_name = "gen_htm_" + random_number + ".html"
+file_path = "./public/" + file_name
+
+# Save the HTML content to a file
+with open(file_path, 'w') as file:
+    file.write(html_content)
+
+print("HTML file '{}' generated successfully.".format(file_name))
+
+
+
+-----------------------------------------
+
+
+
+import random
+
+tech_words = [
+    "computer", "algorithm", "programming", "software", "database",
+    "network", "security", "cloud", "artificial", "intelligence",
+    "machine", "learning", "web", "mobile", "application",
+    "developer", "cybersecurity", "blockchain", "virtual", "reality"
+]
+
+# Generate 20 random segments from tech_words
+segments = [random.choice(tech_words) for _ in range(20)]
+
+# Create 1000 new words by combining random segments
+new_words = []
+for _ in range(1000):
+    word = ''.join(random.sample(segments, random.randint(2, 4)))
+    new_words.append(word)
+
+# Format the new words in HTML paragraphs
+paragraphs = []
+for i in range(0, len(new_words), 10):
+    words = new_words[i:i+30]
+    paragraph = '<p>' + ', '.join(words) + '</p>'
+    paragraphs.append(paragraph)
+
+# Generate the HTML content
+html_content = '<html><body>' + '\n'.join(paragraphs) + '</body></html>'
+
+# Generate a random number for the filename
+random_number = str(random.randint(1000, 9999))
+
+# Generate the file name with the random number
+file_name = "gen_htm_" + random_number + ".html"
+file_path = "./public/" + file_name
+
+# Save the HTML content to a file
+with open(file_path, 'w') as file:
+    file.write(html_content)
+
+print("HTML file '{}' generated successfully.".format(file_name))
+
+
+
+-------------------------------
+
+import feedparser
+import random
+
+def generate_rss_html(url):
+    feed = feedparser.parse(url)
+
+    html_snippets = []
+    for entry in feed.entries:
+        title = entry.title
+        link = entry.link
+        desc = entry.description
+
+        html_snippet = '<div>\n<h4>{}</h4>\n<br><p>-- source: <a href="{}">{}</a></p>\n<br></div>'.format(desc, link, link)
+        html_snippets.append(html_snippet)
+
+    return '\n'.join(html_snippets)
+
+# Specify the URL of the RSS feed
+rss_url = "https://www.cbc.ca/cmlink/rss-canada"
+
+# Generate the HTML snippet for the RSS feed
+rss_html = generate_rss_html(rss_url)
+
+# Generate the file name with the random number
+random_number = str(random.randint(1000, 9999))
+file_name = "gen_htm_" + random_number + ".html"
+file_path = "./public/" + file_name
+
+# Save the HTML snippet to a file
+with open(file_path, 'w') as file:
+    file.write(rss_html)
+
+print("HTML file '{}' generated successfully.".format(file_name))
