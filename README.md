@@ -46,7 +46,7 @@ To execute a Python script using the HTTPD Server:
 
 1. Send a POST request to `http://localhost:8000/execute` with the following JSON body:
 
-```json
+json formate
 {
   "script": "print('Hello, world!')"
 }
@@ -58,7 +58,3 @@ Content-Type: text/plain
 
 Hello, world!
 
-(You can replace the script value with your own Python code.)
-
-## Security Risks
-Executing arbitrary Python code on the server poses security risks. Avoid running untrusted or unsanitized code to prevent code injection, data breaches, or unauthorized access to server resources. Ensure that proper security measures are in place before deploying the server in a production environment.
